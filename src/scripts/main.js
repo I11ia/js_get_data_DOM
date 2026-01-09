@@ -7,9 +7,12 @@ const averagePopulation = document.querySelector('.average-population');
 let total = 0;
 
 for (const item of populations) {
-  const num = +item.textContent.replaceAll(',', '');
+  const cleanedText = item.textContent.replaceAll(',', '');
+  const num = Number(cleanedText);
 
-  total += num;
+  if (!isNaN(num)) {
+    total += num;
+  }
 }
 
 const average = Math.round(total / populations.length);
